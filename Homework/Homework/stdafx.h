@@ -17,7 +17,10 @@
 #include "glut.h"
 #include <vector>
 #include <time.h>
+#include <math.h>
 
 
 extern float GWindowWidth;
 extern float GWindowHeight;
+extern float GRotateX;
+extern float GRotateY;

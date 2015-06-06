@@ -11,7 +11,7 @@ public:
 	~HomeWork1();
 
 	void Init();
-	void RenderRect();
+	void RenderRects();
 	void Run();
 	std::vector<Rect*>& GetRects();
 

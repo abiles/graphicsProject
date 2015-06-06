@@ -4,18 +4,46 @@
 #include "stdafx.h"
 #include "Rect.h"
 #include "HomeWork1.h"
+#include "HomeWork2.h"
 
 
 
 float GWindowWidth = 800.0f;
 float GWindowHeight = 600.0f;
+float GRotateX = 0.0f;
+float GRotateY = 0.0f;
+
+static float m_RotX = 0.0f;
+static float m_RotY = 0.0f;
+
+static bool w1 = true;
+static bool w2 = false;
+static bool w3 = false;
+static bool w4 = false;
+
 
 
 void RenderScene()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	GHomeWork1.RenderRect();
+	if (w1)
+	{
+		GHomeWork1.RenderRects();
+	}
+	else if (w2)
+	{
+		GHomeWork2.RenderSpiralPoints();
+
+	}
+	else if (w3)
+	{
+	
+	}
+	else if (w4)
+	{
+
+	}
 
 	glutSwapBuffers();
 
@@ -26,11 +54,13 @@ void ChangeSize(GLsizei w, GLsizei h)
 	GWindowWidth = w;
 	GWindowHeight = h;
 
+	GLfloat nRange = 100.0f;
+
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	
-	glOrtho(-w, w, -h, h, 1.0f, -1.0f);
+	glOrtho(-w, w, -h, h, -nRange, nRange);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -44,10 +74,75 @@ void SetupRC()
 
 void TimerFunc(int value)
 {
-	GHomeWork1.Run();
+
+	if (w1)
+	{
+		GHomeWork1.Run();
+	}
+
 	glutPostRedisplay();
 
 	glutTimerFunc(33, TimerFunc, 1);
+}
+
+void KeyControl(int key, int x, int y)
+{
+	switch (key)
+	{
+	case GLUT_KEY_UP:
+		GRotateX+= -5.0f;
+		break;
+
+	case GLUT_KEY_DOWN:
+		GRotateX += 5.0f;
+		m_RotX += 5.0f;
+
+		break;
+
+	case GLUT_KEY_LEFT:
+		GRotateY -= -5.0f;
+		break;
+
+	case GLUT_KEY_RIGHT:
+		GRotateY -= 5.0f;
+		break;
+		
+	case GLUT_KEY_F1:
+		w1 = true;
+		w2 = false;
+		w3 = false;
+		w4 = false;
+		break;
+
+	case GLUT_KEY_F2:
+		w1 = false;
+		w2 = true;
+		w3 = false;
+		w4 = false;
+		break;
+
+	case GLUT_KEY_F3:
+		w1 = false;
+		w2 = false;
+		w3 = true;
+		w4 = false;
+		break;
+
+	case GLUT_KEY_F4:
+		w1 = false;
+		w2 = false;
+		w3 = false;
+		w4 = true;
+		break;
+
+	case GLUT_KEY_F12:
+		GRotateX = 0.0f;
+		GRotateY = 0.0f;
+	default:
+		break;
+	}
+	
+	glutPostRedisplay();
 }
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -56,14 +151,16 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 	// 모든 드로잉 명령들을 화면에 나타난 윈도우 상에서 수행
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(GWindowWidth, GWindowHeight);
-
+	
 	glutCreateWindow("Homework");
 
 	// 윈도우 그릴 때 마다 불리는 함수 
 	glutDisplayFunc(RenderScene);
 	glutReshapeFunc(ChangeSize);
+	glutSpecialFunc(KeyControl);
 	glutTimerFunc(2000, TimerFunc, 1);
 
 	SetupRC();

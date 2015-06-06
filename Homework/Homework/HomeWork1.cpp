@@ -63,8 +63,8 @@ void HomeWork1::Init()
 			break;
 		}
 		
-		int speedX = rand() % 10 + 1;
-		int speedY = rand() % 10 + 1;
+		int speedX = rand() % 20 + 1;
+		int speedY = rand() % 20 + 1;
 
 
 		Rect* rect = new Rect(size, rectColor, speedX, speedY, posX, posY, i);
@@ -118,7 +118,7 @@ void HomeWork1::Run()
 
 }
 
-void HomeWork1::RenderRect()
+void HomeWork1::RenderRects()
 {
 	for (auto pRect : m_pRects)
 	{
