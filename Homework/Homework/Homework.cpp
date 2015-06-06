@@ -3,6 +3,8 @@
 
 #include "stdafx.h"
 
+float GWindowWidth = 0.0f;
+float GWindowHeight = 0.0f;
 
 void RenderScene()
 {
@@ -13,6 +15,9 @@ void RenderScene()
 
 void ChangeSize(GLsizei w, GLsizei h)
 {
+	GWindowWidth = w;
+	GWindowHeight = h;
+
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();

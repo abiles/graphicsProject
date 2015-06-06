@@ -15,5 +15,8 @@
 // TODO: 프로그램에 필요한 추가 헤더는 여기에서 참조합니다.
 
 #include "glut.h"
-//#include "gltools.h"
-//#include "glex.h"
+#include <vector>
+
+
+extern float GWindowWidth;
+extern float GWindowHeight;
