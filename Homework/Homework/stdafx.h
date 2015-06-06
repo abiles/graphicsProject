@@ -16,6 +16,7 @@
 
 #include "glut.h"
 #include <vector>
+#include <time.h>
 
 
 extern float GWindowWidth;

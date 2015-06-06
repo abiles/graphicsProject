@@ -11,7 +11,9 @@ public:
 	~HomeWork1();
 
 	void Init();
+	void RenderRect();
 	void Run();
+	std::vector<Rect*>& GetRects();
 
 private:
 	bool			   m_IsFirstCall = false;
@@ -19,3 +21,4 @@ private:
 	std::vector<Rect*> m_pRects;
 };
 
+extern HomeWork1 GHomeWork1;

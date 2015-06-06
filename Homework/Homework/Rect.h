@@ -2,21 +2,23 @@
 class Rect
 {
 public:
-	using RectSize = GLfloat[4];
 	using RectColor = GLfloat[3];
 
-
-	Rect(RectSize rectSize, RectColor rectColor, GLfloat speed, GLfloat posX, GLfloat posY );
+	Rect(int size, RectColor rectColor, int speedX, int speedY, GLfloat posX, GLfloat posY, int rectTag );
 	~Rect();
 
+	bool IsRectCollision(GLfloat posX, GLfloat posY, int size);
+	void Render();
 
 
-private:
-	RectSize    m_RectSize;
+public:
+	int			m_Size = 0;
 	RectColor   m_RectColor;
-	GLfloat	    m_Speed = 0.0f;
+	int		    m_SpeedX = 0;
+	int			m_SpeedY = 0;
 	GLfloat     m_PosX = 0.0f;
 	GLfloat     m_PosY = 0.0f;
+	int			m_RectTag = -1;
 
 
 };
