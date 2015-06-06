@@ -5,7 +5,7 @@
 #include "Rect.h"
 #include "HomeWork1.h"
 #include "HomeWork2.h"
-
+#include "HomeWork3.h"
 
 
 float GWindowWidth = 800.0f;
@@ -38,7 +38,7 @@ void RenderScene()
 	}
 	else if (w3)
 	{
-	
+		GHomeWork3.Render3DRect();
 	}
 	else if (w4)
 	{
@@ -54,7 +54,7 @@ void ChangeSize(GLsizei w, GLsizei h)
 	GWindowWidth = w;
 	GWindowHeight = h;
 
-	GLfloat nRange = 100.0f;
+	GLfloat nRange = 500.0f;
 
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
@@ -70,6 +70,7 @@ void SetupRC()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	GHomeWork1.Init();
+	GHomeWork3.Init();
 }
 
 void TimerFunc(int value)
@@ -90,21 +91,63 @@ void KeyControl(int key, int x, int y)
 	switch (key)
 	{
 	case GLUT_KEY_UP:
-		GRotateX+= -5.0f;
+		if (w2)
+		{
+			GHomeWork2.m_RotateX -= 5.0f;
+		}
+		else if (w3)
+		{
+			GHomeWork3.m_RotateX -= 5.0f;
+		}
+		else if (w4)
+		{
+
+		}
 		break;
 
 	case GLUT_KEY_DOWN:
-		GRotateX += 5.0f;
-		m_RotX += 5.0f;
+		if (w2)
+		{
+			GHomeWork2.m_RotateX += 5.0f;
+		}
+		else if (w3)
+		{
+			GHomeWork3.m_RotateX += 5.0f;
+		}
+		else if (w4)
+		{
 
+		}
 		break;
 
 	case GLUT_KEY_LEFT:
-		GRotateY -= -5.0f;
+		if (w2)
+		{
+			GHomeWork2.m_RotateY -= 5.0f;
+		}
+		else if (w3)
+		{
+			GHomeWork3.m_RotateY -= 5.0f;
+		}
+		else if (w4)
+		{
+
+		}
 		break;
 
 	case GLUT_KEY_RIGHT:
-		GRotateY -= 5.0f;
+		if (w2)
+		{
+			GHomeWork2.m_RotateY += 5.0f;
+		}
+		else if (w3)
+		{
+			GHomeWork3.m_RotateY += 5.0f;
+		}
+		else if (w4)
+		{
+
+		}
 		break;
 		
 	case GLUT_KEY_F1:
@@ -136,8 +179,21 @@ void KeyControl(int key, int x, int y)
 		break;
 
 	case GLUT_KEY_F12:
-		GRotateX = 0.0f;
-		GRotateY = 0.0f;
+		if (w2)
+		{
+			GHomeWork2.m_RotateX = 0.0f;
+			GHomeWork2.m_RotateY = 0.0f;
+		}
+		else if (w3)
+		{
+			GHomeWork3.m_RotateX = 0.0f;
+			GHomeWork3.m_RotateY = 0.0f;
+		}
+		else if (w4)
+		{
+
+		}
+
 	default:
 		break;
 	}

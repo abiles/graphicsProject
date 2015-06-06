@@ -21,8 +21,6 @@ Rect::Rect(int rectSize, RectColor rectColor, int speedX, int speedY, GLfloat po
 
 	m_RectTag = rectTag;
 
-	//glRectf(m_PosX, m_PosY, m_PosX + m_Size, m_PosY + m_Size);
-	//glColor3f(m_RectColor[0], m_RectColor[1], m_RectColor[2]);
 }
 
 

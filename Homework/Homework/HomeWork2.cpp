@@ -18,8 +18,8 @@ void HomeWork2::RenderSpiralPoints()
 	glColor3f(0.0f, 1.0f, 0.0f);
 
 	glPushMatrix();
-	glRotatef(GRotateX, 1.0f, 0.0f, 0.0f);
-	glRotatef(GRotateY, 0.0f, 1.0f, 0.0f);
+	glRotatef(m_RotateX, 1.0f, 0.0f, 0.0f);
+	glRotatef(m_RotateY, 0.0f, 1.0f, 0.0f);
 	
 	glBegin(GL_POINTS);
 	z = -50.0f;

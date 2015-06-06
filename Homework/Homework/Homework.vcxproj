@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="HomeWork1.h" />
     <ClInclude Include="HomeWork2.h" />
+    <ClInclude Include="HomeWork3.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -89,6 +90,7 @@
     <ClCompile Include="Homework.cpp" />
     <ClCompile Include="HomeWork1.cpp" />
     <ClCompile Include="HomeWork2.cpp" />
+    <ClCompile Include="HomeWork3.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
