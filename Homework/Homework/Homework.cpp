@@ -1,4 +1,4 @@
-// Homework.cpp : ÄÜ¼Ö ÀÀ¿ë ÇÁ·Î±×·¥¿¡ ´ëÇÑ ÁøÀÔÁ¡À» Á¤ÀÇÇÕ´Ï´Ù.
+ï»¿// Homework.cpp : ì½˜ì†” ì‘ìš© í”„ë¡œê·¸ë¨ì— ëŒ€í•œ ì§„ì…ì ì„ ì •ì˜í•©ë‹ˆë‹¤.
 //
 
 #include "stdafx.h"
@@ -7,7 +7,28 @@
 void RenderScene()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1.0f, 0.0f, 0.0f);
 	glFlush();
+}
+
+void ChangeSize(GLsizei w, GLsizei h)
+{
+	glViewport(0, 0, w, h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	
+
+	if (w <= h)
+	{
+		glOrtho(-100.0f, 100.0f, -100.0f * h / w, 100.0f * h / w, 1.0f, -1.0f);
+	}
+	else
+	{
+		glOrtho(-100.0f* w / h, 100.0f* w / h, -100.0f, 100.0f, 1.0f, -1.0f);
+	}
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 }
 
 void SetupRC()
@@ -17,14 +38,14 @@ void SetupRC()
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	// ¸ğµç µå·ÎÀ× ¸í·ÉµéÀ» È­¸é¿¡ ³ªÅ¸³­ À©µµ¿ì »ó¿¡¼­ ¼öÇà
+	// ëª¨ë“  ë“œë¡œì‰ ëª…ë ¹ë“¤ì„ í™”ë©´ì— ë‚˜íƒ€ë‚œ ìœˆë„ìš° ìƒì—ì„œ ìˆ˜í–‰
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 
-	glutCreateWindow("Simple");
+	glutCreateWindow("Homework");
 
-	// À©µµ¿ì ±×¸± ¶§ ¸¶´Ù ºÒ¸®´Â ÇÔ¼ö 
+	// ìœˆë„ìš° ê·¸ë¦´ ë•Œ ë§ˆë‹¤ ë¶ˆë¦¬ëŠ” í•¨ìˆ˜ 
 	glutDisplayFunc(RenderScene);
-
+	glutReshapeFunc(ChangeSize);
 	SetupRC();
 
 
