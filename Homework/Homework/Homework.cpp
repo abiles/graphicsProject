@@ -19,7 +19,6 @@ static float m_RotY = 0.0f;
 static bool w1 = true;
 static bool w2 = false;
 static bool w3 = false;
-static bool w4 = false;
 
 
 
@@ -39,10 +38,6 @@ void RenderScene()
 	else if (w3)
 	{
 		GHomeWork3.Render3DRect();
-	}
-	else if (w4)
-	{
-
 	}
 
 	glutSwapBuffers();
@@ -88,6 +83,9 @@ void TimerFunc(int value)
 
 void KeyControl(int key, int x, int y)
 {
+
+	
+
 	switch (key)
 	{
 	case GLUT_KEY_UP:
@@ -98,10 +96,6 @@ void KeyControl(int key, int x, int y)
 		else if (w3)
 		{
 			GHomeWork3.m_RotateX -= 5.0f;
-		}
-		else if (w4)
-		{
-
 		}
 		break;
 
@@ -114,10 +108,6 @@ void KeyControl(int key, int x, int y)
 		{
 			GHomeWork3.m_RotateX += 5.0f;
 		}
-		else if (w4)
-		{
-
-		}
 		break;
 
 	case GLUT_KEY_LEFT:
@@ -128,10 +118,6 @@ void KeyControl(int key, int x, int y)
 		else if (w3)
 		{
 			GHomeWork3.m_RotateY -= 5.0f;
-		}
-		else if (w4)
-		{
-
 		}
 		break;
 
@@ -144,40 +130,33 @@ void KeyControl(int key, int x, int y)
 		{
 			GHomeWork3.m_RotateY += 5.0f;
 		}
-		else if (w4)
-		{
-
-		}
 		break;
 		
 	case GLUT_KEY_F1:
 		w1 = true;
 		w2 = false;
 		w3 = false;
-		w4 = false;
 		break;
 
 	case GLUT_KEY_F2:
 		w1 = false;
 		w2 = true;
 		w3 = false;
-		w4 = false;
+
 		break;
 
 	case GLUT_KEY_F3:
 		w1 = false;
 		w2 = false;
 		w3 = true;
-		w4 = false;
 		break;
 
-	case GLUT_KEY_F4:
-		w1 = false;
-		w2 = false;
-		w3 = false;
-		w4 = true;
+	case GLUT_KEY_F5:
+		glEnable(GL_LIGHTING);
 		break;
-
+	case GLUT_KEY_F6:
+		glDisable(GL_LIGHTING);
+		break;
 	case GLUT_KEY_F12:
 		if (w2)
 		{
@@ -189,11 +168,6 @@ void KeyControl(int key, int x, int y)
 			GHomeWork3.m_RotateX = 0.0f;
 			GHomeWork3.m_RotateY = 0.0f;
 		}
-		else if (w4)
-		{
-
-		}
-
 	default:
 		break;
 	}

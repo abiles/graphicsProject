@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9AD895DD-4E26-407E-8699-71EBF87BD0AF}</ProjectGuid>
+    <ProjectGuid>{9DE3B1BB-834F-4796-95AD-031A426CECC8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Homework</RootNamespace>
+    <RootNamespace>HomeWork4</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -79,24 +79,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HomeWork1.h" />
-    <ClInclude Include="HomeWork2.h" />
-    <ClInclude Include="HomeWork3.h" />
     <ClInclude Include="lodepng.h" />
-    <ClInclude Include="Rect.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Homework.cpp" />
-    <ClCompile Include="HomeWork1.cpp" />
-    <ClCompile Include="HomeWork2.cpp" />
-    <ClCompile Include="HomeWork3.cpp" />
+    <ClCompile Include="HomeWork4.cpp" />
     <ClCompile Include="lodepng.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Rect.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
